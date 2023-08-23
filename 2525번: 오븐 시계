@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main () {
+    int hour, minute;
+    int ctime;
+    scanf("%d %d", &hour, &minute);
+    scanf("%d", &ctime);
+    
+    // 문제 조건인 시, 분, 요리 시간 범위 설정
+    if(hour>=0 && hour<24) {
+        if(minute>=0 && minute <60) {
+            if(ctime >= 0 && ctime <= 1000){
+                minute += ctime;
+            }
+        }
+    }
+    
+    // 시계 알고리즘 
+    if (minute >= 60) {
+        int count = minute / 60;
+        for(int i = 0; i<count; i++){
+             hour += 1;
+             minute -= 60;
+        }
+        if(hour >= 24) {
+            hour -= 24;
+        }
+    }
+
+    printf("%d %d \n", hour, minute);
+    return 0;
+}
