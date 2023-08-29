@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main () {
+    //N개의 바구니, M번 넣는 횟수
+    int N, M;
+    //공을 넣을 방법
+    int i, j, k;
+    // 100개의 바구니 셋팅
+    int num[100] = {0};
+    scanf("%d %d", &N, &M);
+
+    for(int l =0; l<M;l++) {
+        scanf("%d %d %d", &i,&j,&k);
+        // 바구니 i부터 j까지
+        for(int o = i; o<=j; o++) {
+            // 빈 바구니가 아닐 경우
+            if(num[o-1] != 0) {
+                num[o-1] = 0;
+                num[o-1] += k;
+            }
+            // 빈 바구니일 경우
+            else
+                num[o-1] += k;
+        }
+    }
+    
+    for(int p = 0; p<N; p++) {
+        printf("%d ", num[p]); 
+    }
+    return 0;
+}
